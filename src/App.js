@@ -1,11 +1,14 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import Products from './components/Products'
 const App = () => { 
+    const [data, setdata] = useState(initialState)
+    
     return (
         <div className="app">
-            E-Commerce
+            <Products /> 
         </div>
     )
 }
+===
 
 export default App
