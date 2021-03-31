@@ -2,12 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
   root: {
-    maxWidth: '20em',
-    boxShadow: 'none'
+    boxShadow: 'none',
   },
 
   media: {
-    height: '28em',
+    height: '30em',
     objectFit: 'contain', 
     width: '100%'
   },
