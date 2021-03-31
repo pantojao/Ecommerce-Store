@@ -7,10 +7,9 @@ const Products = () => {
   console.log(productInfo);
 
   return (
-    <main style={{outline: '2px red solid' }}>
+    <main style={{maxWidth: "100%"}}>
       <Grid
         container
-     
         spacing={3}
         alignItems="center"
         justifyContent="center"

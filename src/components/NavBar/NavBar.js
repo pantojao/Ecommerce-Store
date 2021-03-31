@@ -5,7 +5,7 @@ import {useStyles} from './NavBarStyles'
 const NavBar = () => {
     const classes = useStyles()
     return (
-        <AppBar position="relative">
+        <AppBar className={classes.navLight} position="relative">
             <Toolbar className={classes.nav}>
                 <Typography>Ecomm</Typography>
                 <IconButton edge="start">
