@@ -12,5 +12,12 @@ export const useStyles = makeStyles({
         height: '100vh',
         width: '100%',
         overflow:'hidden'
+    },
+    heroContent: {
+        color: 'white',
+        width: '70%',
+        position: 'absolute',
+        top: '50vh',
+        right: '5%',
     }
 })

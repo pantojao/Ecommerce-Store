@@ -1,13 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
 import productInfo from "../ProductInfo.json";
-
+import ViewProduct from "./ViewProducts/ViewProducts"
 const Products = () => {
-  console.log(productInfo);
-
+  const [showDetails, setshowDetails] = useState(false)
   return (
-    <main style={{maxWidth: "100%"}}>
+    <main style={{maxWidth: "100%", position: 'relative'}}>
       <Grid
         container
         spacing={3}
@@ -23,11 +22,13 @@ const Products = () => {
                 price={product.price}
                 description={product.description}
                 imageSource={product.imageSource}
+                onClick={() => setshowDetails(!showDetails)}
               />
             </Grid>
           );
         })}
       </Grid>
+ 
     </main>
   );
 };

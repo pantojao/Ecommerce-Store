@@ -1,8 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
+
+
   root: {
     boxShadow: 'none',
+    marginTop: '1.5em',
+
   },
 
   media: {
@@ -24,7 +28,7 @@ export default makeStyles(() => ({
   },
 
   productPrice:{
-    fontSize: '.9rem',
+    fontSize: '.8rem',
   }, 
 
   cardContent: {
@@ -41,4 +45,5 @@ export default makeStyles(() => ({
     borderRadius: "1px",
     backgroundColor: 'black'
   }
+
 }));
