@@ -29,7 +29,7 @@ export default makeStyles(() => ({
   buttonContainer: {
     display: 'flex',
     flexWrap: 'row wrap',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     margin: '2em auto',
   },
 
