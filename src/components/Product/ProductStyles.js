@@ -44,6 +44,14 @@ export default makeStyles(() => ({
     fontSize: '.6rem',
     borderRadius: "1px",
     backgroundColor: 'black'
+  },
+  detailsContainer: {
+    position:'fixed', 
+    zIndex: '40', 
+    top:'0', 
+    right:'0', 
+    width: '100vw', 
+    height: '100vh'
   }
 
 }));
