@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
 import productInfo from "../ProductInfo.json";
-const Products = () => {
-  
+
+
+const Products = ({reference}) => {
+
   return (
-    <main style={{maxWidth: "100%", position: 'relative'}}>
+    <main  ref={reference} style={{maxWidth: "100%", position: 'relative'}} >
       <Grid
         container
         spacing={3}

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {AppBar, Toolbar,Badge, IconButton, Typography} from '@material-ui/core'
 import {Menu, ShoppingCart} from '@material-ui/icons'
 import {useStyles} from './NavBarStyles'
 const NavBar = () => {
     const classes = useStyles()
+    const [currentColor, setCurrentColor] = useState(classes.navLight)
+
+
     return (
-        <AppBar className={classes.navLight} position="relative">
+        <AppBar className={currentColor} >
             <Toolbar className={classes.nav}>
                 <IconButton edge="start" size="medium">
                     <Menu style={{ color: 'white' }} /> 

@@ -9,11 +9,13 @@ export const useStyles = makeStyles({
     navLight: { 
         backgroundColor: 'transparent',
         color: 'white',
-        position:'absolute',
+        position:'fixed',
         maxWidth:'100%',
+        boxShadow: 'none'
     },
     navDark: {
-        backgroundColor: 'black'
+        backgroundColor: 'white',
+        color: 'black'
     }
 })
 

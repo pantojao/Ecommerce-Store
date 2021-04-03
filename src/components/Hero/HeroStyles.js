@@ -16,8 +16,15 @@ export const useStyles = makeStyles({
     heroContent: {
         color: 'white',
         width: '70%',
+        minHeight: '20%',
         position: 'absolute',
         top: '50vh',
         right: '5%',
-    }
+        display: 'flex',
+        flexFlow: 'column wrap',
+        justifyContent: 'space-around',
+        alignItems: 'flex-end'
+
+    },
+
 })

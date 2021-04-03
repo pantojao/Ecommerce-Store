@@ -55,15 +55,15 @@ const ViewProduct = ({
           aria-label="Product Variant"
         >
           <ToggleButton value={300} aria-label="300ml">
-            <Button>330ml</Button>
+            <Typography>330ml</Typography>
           </ToggleButton>
 
           <ToggleButton value={550} aria-label="550ml">
-            <Button>500ml</Button>
+            <Typography>500ml</Typography>
           </ToggleButton>
 
           <ToggleButton value={1000} aria-label="1000ml">
-            <Button>1000ml</Button>
+            <Typography>1000ml</Typography>
           </ToggleButton>
         </ToggleButtonGroup>
 
@@ -72,11 +72,11 @@ const ViewProduct = ({
             Quantity
           </Typography>
           <Toolbar className={classes.quantityContainer}>
-            <IconButton onClick={() => changeQuanity(-1)}>
+            <IconButton size="small" onClick={() => changeQuanity(-1)}>
               <Remove />
             </IconButton>
-            <Typography>{quantity}</Typography>
-            <IconButton onClick={() => changeQuanity(1)}>
+            <Typography variant="h6" style={{margin: '0em 1em'}}>{quantity}</Typography>
+            <IconButton size="small" onClick={() => changeQuanity(1)}>
               <Add />
             </IconButton>
           </Toolbar>
