@@ -23,6 +23,7 @@ const Products = ({reference, productInfo}) => {
                 price={product.price.formatted_with_symbol}
                 description={product.description}
                 imageSource={product.media.source}
+                productID={product.id}
               />
             </Grid>
           );

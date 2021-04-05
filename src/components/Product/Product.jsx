@@ -9,13 +9,14 @@ import {
   CardActionArea,
   Container,
 } from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+import {commerce} from '../../CommerceInstance'
 import useStyles from "./ProductStyles";
 import ViewProduct from "../ViewProducts/ViewProducts";
 
-const Product = ({ name, price, description, imageSource }) => {
+const Product = ({ name, price, description, imageSource, productID }) => {
   const classes = useStyles();
   const [showDetails, setShowDetails] = useState(false);
+
 
   return (
       <Container className={classes.relative}>
@@ -23,7 +24,7 @@ const Product = ({ name, price, description, imageSource }) => {
           <CardActionArea className={classes.cardActions}>
             <CardMedia className={classes.media} image={imageSource} component='img' />
             <CardContent className={classes.cardContent}>
-              <Typography className={classes.productName}>{name}</Typography>
+              <Typography align="center" className={classes.productName}>{name}</Typography>
               <Typography className={classes.productPrice}>
                 From {price}
               </Typography>
@@ -48,6 +49,7 @@ const Product = ({ name, price, description, imageSource }) => {
                 description={description}
                 imageSource= {imageSource}
                 hideDetails={() => setShowDetails(!showDetails)}
+                productID={productID}
               />
             </div>
         </Slide>

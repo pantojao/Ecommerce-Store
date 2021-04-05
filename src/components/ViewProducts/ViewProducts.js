@@ -10,7 +10,7 @@ import {
   CardMedia,
 } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
-
+import {commerce} from '../../CommerceInstance'
 import { Add, Remove } from "@material-ui/icons";
 import useStyles from "./ViewProductsStyles";
 
@@ -20,11 +20,12 @@ const ViewProduct = ({
   description,
   imageSource,
   hideDetails,
+  productID
 }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState(550);
-
+  console.log(productID)
   const changeQuanity = (expression) => {
     const newQuantity = quantity + expression;
     if (newQuantity > 0) {
@@ -36,6 +37,16 @@ const ViewProduct = ({
     setVariant(newVariant);
   };
 
+  const addToCart = async() => {
+    try {
+      console.log(productID, quantity)
+      await commerce.cart.add(productID, quantity)  
+      const newCart = await commerce.cart.retrieve()
+      console.log(newCart)
+    } catch (error) {
+      throw error
+    }
+  }
   return (
     <>
       <Box className={classes.overlay} onClick={() => hideDetails()}></Box>
@@ -61,7 +72,6 @@ const ViewProduct = ({
           <ToggleButton value={550} aria-label="550ml">
             <Typography>Hard Cover</Typography>
           </ToggleButton>
-
         </ToggleButtonGroup>
 
         <Container>
@@ -80,7 +90,7 @@ const ViewProduct = ({
         </Container>
 
         <Container className={classes.actionButtons}>
-          <Button variant="contained" color="secondary">
+          <Button onClick={() => addToCart(productID, quantity)} variant="contained" color="secondary">
             Add To Cart
           </Button>
           <Button variant="contained" color="primary">

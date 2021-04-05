@@ -1,3 +1,4 @@
+import { OutlinedInput } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
@@ -11,15 +12,17 @@ export default makeStyles(() => ({
   media: {
     objectFit: 'contain', 
     width: '100%',
-    height: '500px'
+    height: '350px'
   },
 
   cardActions: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
+    width: '100%',
     maxWidth:"100%", 
-    height: '100%'
+    height: '100%',
+    paddingTop: '2em'
   },
 
   productName: {
@@ -36,7 +39,9 @@ export default makeStyles(() => ({
     flexDirection:'column', 
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    height: '10em'
+    height: '10em',
+    width: '100%',
+    paddingTop: '2em'
   },
 
   viewOptionsButton: {
