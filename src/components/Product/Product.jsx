@@ -21,7 +21,7 @@ const Product = ({ name, price, description, imageSource }) => {
       <Container className={classes.relative}>
         <Card className={classes.root}>
           <CardActionArea className={classes.cardActions}>
-            <CardMedia className={classes.media} image={imageSource} />
+            <CardMedia className={classes.media} image={imageSource} component='img' />
             <CardContent className={classes.cardContent}>
               <Typography className={classes.productName}>{name}</Typography>
               <Typography className={classes.productPrice}>

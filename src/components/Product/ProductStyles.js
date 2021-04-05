@@ -1,25 +1,25 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
-
-
+  relative: {
+    marginTop: '1.5em',
+  },
   root: {
     boxShadow: 'none',
-    marginTop: '1.5em',
-
   },
 
   media: {
-    height: '35em',
     objectFit: 'contain', 
-    width: '100%'
+    width: '100%',
+    height: '500px'
   },
 
   cardActions: {
     display: 'flex',
-    flexFlow: 'wrap column',
+    flexDirection: 'column',
     justifyContent: 'flex-end',
-    maxWidth:"100%"
+    maxWidth:"100%", 
+    height: '100%'
   },
 
   productName: {
@@ -33,7 +33,7 @@ export default makeStyles(() => ({
 
   cardContent: {
     display: 'flex',
-    flexFlow:'wrap column', 
+    flexDirection:'column', 
     justifyContent: 'space-evenly',
     alignItems: 'center',
     height: '10em'
@@ -43,7 +43,8 @@ export default makeStyles(() => ({
     padding: '10px 30px',
     fontSize: '.6rem',
     borderRadius: "1px",
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    marginTop: '1em'
   },
   detailsContainer: {
     position:'fixed', 
