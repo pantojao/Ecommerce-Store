@@ -3,10 +3,8 @@ import {
   Card,
   CardMedia,
   CardContent,
-  CardActions,
   Button,
   Typography,
-  IconButton,
   Slide,
   CardActionArea,
   Container,
@@ -27,7 +25,7 @@ const Product = ({ name, price, description, imageSource }) => {
             <CardContent className={classes.cardContent}>
               <Typography className={classes.productName}>{name}</Typography>
               <Typography className={classes.productPrice}>
-                From ${price}
+                From {price}
               </Typography>
               <Button
                 onClick={() => setShowDetails(!showDetails)}

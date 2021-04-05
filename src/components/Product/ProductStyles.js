@@ -10,7 +10,7 @@ export default makeStyles(() => ({
   },
 
   media: {
-    height: '30em',
+    height: '35em',
     objectFit: 'contain', 
     width: '100%'
   },

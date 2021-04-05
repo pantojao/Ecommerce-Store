@@ -1,11 +1,11 @@
-import React, {useState, useRef} from "react";
+import React from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
-import productInfo from "../ProductInfo.json";
 
 
-const Products = ({reference}) => {
 
+const Products = ({reference, productInfo}) => {
+  console.log(productInfo)
   return (
     <main  ref={reference} style={{maxWidth: "100%", position: 'relative'}} >
       <Grid
@@ -14,15 +14,15 @@ const Products = ({reference}) => {
         alignItems="center"
         justifyContent="center"
       >
-        {productInfo.map((product) => {
+        {productInfo.map((product, index) => {
           return (
-            <Grid item xs={12} sm ={6} lg={3} xl={3}>
+            <Grid item xs={12} sm ={6} lg={3} xl={3} key={index}>
               <Product
                 item
                 name={product.name}
-                price={product.price}
+                price={product.price.formatted_with_symbol}
                 description={product.description}
-                imageSource={product.imageSource}
+                imageSource={product.media.source}
               />
             </Grid>
           );

@@ -44,7 +44,7 @@ const ViewProduct = ({
         <Typography margin="1em" align="center">
           {name}
         </Typography>
-        <Typography align="center">${price}</Typography>
+        <Typography align="center">{price}</Typography>
         <Typography align="center">Tax Included</Typography>
 
         <ToggleButtonGroup
@@ -55,16 +55,13 @@ const ViewProduct = ({
           aria-label="Product Variant"
         >
           <ToggleButton value={300} aria-label="300ml">
-            <Typography>330ml</Typography>
+            <Typography>Paper Back</Typography>
           </ToggleButton>
 
           <ToggleButton value={550} aria-label="550ml">
-            <Typography>500ml</Typography>
+            <Typography>Hard Cover</Typography>
           </ToggleButton>
 
-          <ToggleButton value={1000} aria-label="1000ml">
-            <Typography>1000ml</Typography>
-          </ToggleButton>
         </ToggleButtonGroup>
 
         <Container>

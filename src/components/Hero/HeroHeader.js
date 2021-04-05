@@ -9,8 +9,8 @@ const HeroHeader = ({scrollToProducts}) => {
     return (
         <Box maxWidth="sm" className={classes.root}>
             <Container className={classes.heroContent}>
-                <Typography variant="h4" align='right'>100% Organic Goodness</Typography>
-                <Typography variant="subtitle2" align="right">Where we do things differently. 100% organic smoothies and cold pressed juices is our thing.</Typography>
+                <Typography variant="h4" align='right'>Find Your Read</Typography>
+                <Typography variant="subtitle2" align="right">We Find Must Reads So You Don't To</Typography>
                 <Button color="secondary" variant="contained" onClick = {scrollToProducts}>
                     Shop Now
                 </Button>
