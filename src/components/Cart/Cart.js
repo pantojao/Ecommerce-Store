@@ -3,7 +3,7 @@ import { commerce } from "../../CommerceInstance";
 import React, { useState, useEffect } from "react";
 import CartItem from "./CartItem";
 import useStyles from "./CartStyles";
-const Cart = () => {
+const Cart = ({hideCart}) => {
   const [cart, setCart] = useState(false);
   const classes = useStyles();
 
@@ -14,6 +14,9 @@ const Cart = () => {
   }, []);
 
     return cart && (
+      <>
+        <Container className={classes.overlay} onClick={hideCart}/> 
+        <Typography variant='h2' align='center'>Your Cart</Typography>
         <Container className={classes.cartDetails}>
           {cart.line_items.map((product) => {
             return (
@@ -28,6 +31,7 @@ const Cart = () => {
             })
           }
          </Container> 
+     </> 
    ) 
 };
 

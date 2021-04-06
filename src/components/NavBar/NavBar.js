@@ -27,8 +27,8 @@ const NavBar = () => {
         
             {showCart ?
             <Slide direction="left" in={showCart} timeout={500} >
-                <div className={classes.cartContainer} onClick={() => setShowCart(!showCart)}>
-                    <Cart /> 
+                <div className={classes.cartContainer}>
+                    <Cart hideCart={() => setShowCart()} /> 
                 </div>
             </Slide>
             : null }        

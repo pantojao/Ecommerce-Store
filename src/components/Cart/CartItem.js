@@ -8,6 +8,7 @@ const CartItem = ({productID, name, media, price, quanitity}) => {
     const classes = useStyles()
 
     return (    
+    <>
         <Paper className={classes.cartItem}>
             <CardMedia image={media} component="img" className={classes.cartItemImage}/> 
             <Container className={classes.cartItemInfo}>
@@ -19,6 +20,7 @@ const CartItem = ({productID, name, media, price, quanitity}) => {
             </IconButton>
 
         </Paper>
+    </>
     )
 }
 

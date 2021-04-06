@@ -8,31 +8,36 @@ export default makeStyles(() => ({
     overflow: "auto",
     top: "0",
     right: "0",
-    zIndex: "100",
     backgroundColor: "white",
+    zIndex: '100'
   },
-
+  overlay: {
+    backgroundColor: 'transparent', 
+    width: '100vw',
+    height: '100vh',
+    zIndex: '5',
+    position: 'fixed',
+    left: '0',
+    top: '0'
+  },
   cartItem: {
+      position: 'relative',
       display: 'flex',
       flexFlow: 'row wrap',
-      justifyContent: 'center',
+      alignItems: 'flex-start',
       height: '300px',
       width: '100%',
-      outline: '2px yellow solid'
+      margin: '1.5em auto',
+      padding: '.5em 0em'
   },
 
   cartItemImage: {
-    position: 'relative', 
     height: "100%",
     width: "20%",
-    maxWidth: '100%',
     objectFit: 'contain',
-    outline: '2px red solid',
-    margin: '0em'
     
   },
   cartItemInfo: {
-      position: 'relative'
+    width: '50%'
   },
-  clear: {position: 'relative'},
 }));
