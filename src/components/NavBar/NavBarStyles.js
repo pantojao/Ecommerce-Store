@@ -27,4 +27,10 @@ export const useStyles = makeStyles({
     width: "100vw",
     height: "100vh",
   },
+  menu: {
+    marginTop: '2em'
+  }, 
+  nested: {
+    paddingLeft: '3em'
+  }
 });

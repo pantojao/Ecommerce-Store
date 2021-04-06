@@ -40,7 +40,7 @@ const ViewProduct = ({
   const addToCart = async() => {
     try {
       await commerce.cart.add(productID, quantity)  
-      const newCart = await commerce.cart.retrieve()
+      hideDetails()
     } catch (error) {
       throw error
     }

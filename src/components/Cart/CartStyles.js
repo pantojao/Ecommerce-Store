@@ -21,34 +21,36 @@ export default makeStyles(() => ({
     top: '0'
   },
   cartItem: {
-      position: 'relative',
       display: 'flex',
       flexFlow: 'row wrap',
       alignItems: 'flex-start',
-    
       height: '300px',
       width: '100%',
       margin: '1.5em auto',
-      padding: '.5em'
+      padding: '.5em',
   },
-
   cartItemImage: {
-    height: "100%",
     width: "20%",
     objectFit: 'contain',
-    
+    display: 'block',
+    maxHeight: '100%'
   },
+
   cartItemInfo: {
-    width: '50%',
+    width: '70%',
+    maxHeight: '100%',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center', 
+    flexFlow: 'column wrap',
+    justifyContent: 'space-evenly', 
     alignItems: 'center',
-    outline: '2px red solid'
   },
   quantityContainer: {
-      outline: '2px red solid',
       width: '125px', 
       margin: '0 auto'
+  }, 
+  checkoutButton: { 
+    display: 'block',
+    margin: '1em auto'
   }
+
 }));

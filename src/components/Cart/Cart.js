@@ -1,4 +1,4 @@
-import { Container, Typography } from "@material-ui/core";
+import { Container, Typography, Button } from "@material-ui/core";
 import { commerce } from "../../CommerceInstance";
 import React, { useState, useEffect } from "react";
 import CartItem from "./CartItem";
@@ -10,8 +10,11 @@ const Cart = ({hideCart}) => {
   useEffect(async () => {
     const currentCart = await commerce.cart.retrieve();
     setCart(currentCart);
-    console.log(currentCart);
   }, []);
+
+  const refreshCart = (newCart) => {
+    setCart(newCart)
+  }
 
     return cart && (
       <>
@@ -26,11 +29,17 @@ const Cart = ({hideCart}) => {
                 media={product.media.source}
                 price={product.price.formatted_with_symbol}
                 quantity={product.quantity}
+                refreshCart={refreshCart}
               />
               )
             })
           }
+          <Typography variant="subtitle2" align='center'>Subtotal</Typography>
+          <Typography variant='h6' align='center'>{cart.subtotal.formatted_with_symbol}</Typography>
+          <Button color="primary" variant='contained' size='large' className={classes.checkoutButton}>Check Out</Button>
          </Container> 
+
+
      </> 
    ) 
 };
