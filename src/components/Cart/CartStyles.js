@@ -25,10 +25,11 @@ export default makeStyles(() => ({
       display: 'flex',
       flexFlow: 'row wrap',
       alignItems: 'flex-start',
+    
       height: '300px',
       width: '100%',
       margin: '1.5em auto',
-      padding: '.5em 0em'
+      padding: '.5em'
   },
 
   cartItemImage: {
@@ -38,6 +39,16 @@ export default makeStyles(() => ({
     
   },
   cartItemInfo: {
-    width: '50%'
+    width: '50%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center', 
+    alignItems: 'center',
+    outline: '2px red solid'
   },
+  quantityContainer: {
+      outline: '2px red solid',
+      width: '125px', 
+      margin: '0 auto'
+  }
 }));
