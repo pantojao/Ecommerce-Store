@@ -1,3 +1,4 @@
+import { Typography } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 
@@ -12,5 +13,9 @@ export const theme = createMuiTheme({
         success: {
             main: 'rgb(229,57,53)'
         }
+    },
+
+    typography: {
+        fontFamily:[ 'Lato', 'sans-serif'].join(',')
     }
 })

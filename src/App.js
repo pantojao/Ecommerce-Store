@@ -6,7 +6,6 @@ import {theme} from './MyTheme';
 import {ThemeProvider} from '@material-ui/core'
 import { commerce } from './CommerceInstance'
 
-
 const App = () => { 
     const scrollToProducts = (ref) =>  ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
     const productsElement = useRef()

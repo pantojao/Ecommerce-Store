@@ -5,7 +5,6 @@ import Product from "./Product/Product";
 
 
 const Products = ({reference, productInfo}) => {
-  console.log(productInfo)
   return (
     <main  ref={reference} style={{maxWidth: "100%", position: 'relative'}} >
       <Grid

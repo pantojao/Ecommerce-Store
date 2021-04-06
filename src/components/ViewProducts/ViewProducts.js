@@ -25,7 +25,7 @@ const ViewProduct = ({
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState(550);
-  console.log(productID)
+  
   const changeQuanity = (expression) => {
     const newQuantity = quantity + expression;
     if (newQuantity > 0) {
@@ -39,10 +39,8 @@ const ViewProduct = ({
 
   const addToCart = async() => {
     try {
-      console.log(productID, quantity)
       await commerce.cart.add(productID, quantity)  
       const newCart = await commerce.cart.retrieve()
-      console.log(newCart)
     } catch (error) {
       throw error
     }

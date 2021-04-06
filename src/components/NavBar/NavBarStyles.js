@@ -15,6 +15,14 @@ export const useStyles = makeStyles({
     navDark: {
         backgroundColor: 'white',
         color: 'black'
-    }
+    },
+    cartContainer: {
+    position:'fixed', 
+    zIndex: '40', 
+    top:'0', 
+    right:'0', 
+    width: '100vw', 
+    height: '100vh'
+  }
 })
 
