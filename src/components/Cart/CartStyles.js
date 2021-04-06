@@ -52,5 +52,4 @@ export default makeStyles(() => ({
     display: 'block',
     margin: '1em auto'
   }
-
 }));

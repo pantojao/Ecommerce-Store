@@ -31,6 +31,9 @@ export const useStyles = makeStyles({
     marginTop: '2em'
   }, 
   nested: {
-    paddingLeft: '3em'
+    paddingLeft: '3em',
+    '&:hover': {
+      backgroundColor: '#e8e8e8'
+    }
   }
 });

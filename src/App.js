@@ -1,5 +1,5 @@
 import React, {useRef, useState,useEffect} from 'react';
-import Products from './components/Products'
+import Products from './components/ProductDisplay/Products'
 import NavBar from './components/NavBar/NavBar'
 import HeroHeader from './components/Hero/HeroHeader';
 import {theme} from './MyTheme';
