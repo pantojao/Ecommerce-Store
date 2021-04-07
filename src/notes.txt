@@ -1,0 +1,7 @@
+-increment shopping cart badge
+-add about me section 
+-implement filter for the home page
+-implement redirect for checkout 
+-changing navbar color depending on position
+-Add new font for the headers 
+-Add image preview to reduce wait time

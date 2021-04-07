@@ -9,8 +9,8 @@ import {
   FormControl,
   Main,
 } from "@material-ui/core";
-import ProductDisplay from "./ProductDisplay";
-import useStyles from "./ProductsStyles";
+import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
+import useStyles from "./components/ProductDisplay/ProductsStyles";
 
 const Products = ({ reference, productInfo }) => {
   const [currentFilter, setCurrentFilter] = useState(false);

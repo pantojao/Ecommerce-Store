@@ -9,11 +9,12 @@ import {
   CardActionArea,
   Container,
 } from "@material-ui/core";
+import Skeleton from '@material-ui/lab/Skeleton';
 import {commerce} from '../../CommerceInstance'
 import useStyles from "./ProductStyles";
 import ViewProduct from "../ViewProducts/ViewProducts";
 
-const Product = ({ name, price, description, imageSource, productID }) => {
+const Product = ({ name, price, description, imageSource, productID}) => {
   const classes = useStyles();
   const [showDetails, setShowDetails] = useState(false);
 
@@ -54,7 +55,8 @@ const Product = ({ name, price, description, imageSource, productID }) => {
             </div>
         </Slide>
       </Container>
-  );
+  ) 
+
 };
 
 export default Product;

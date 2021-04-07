@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import Products from "./components/ProductDisplay/Products";
 import NavBar from "./components/NavBar/NavBar";
 import HeroHeader from "./components/Hero/HeroHeader";
 import { theme } from "./MyTheme";
@@ -12,12 +11,10 @@ const App = () => {
   const [products, setProducts] = useState(false);
   const [categories, setCatagories] = useState([]);
 
-
   const location = useLocation();
   const scrollToProducts = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-
   const productsElement = useRef();
 
   const fetchProducts = async (category) => {
@@ -57,25 +54,23 @@ const App = () => {
   }, [location]);
 
 
-  return products ? (
+  return (
     <ThemeProvider theme={theme}>
       <NavBar />
-
       <Switch>
         <Route exact path="/:category">
-          <ProductDisplay productInfo={products.data} genre/>
+          <ProductDisplay productInfo={products ? products.data : null} genre />
         </Route>
 
         <Route exact path="/">
           <div style={{ overflow: "hidden" }}>
             <HeroHeader scrollToProducts={() => scrollToProducts(productsElement)} />
-            <Products reference={productsElement} productInfo={products.data} />
+            <ProductDisplay reference={productsElement} productInfo={products ? products.data : null} genre={false}/>
           </div>
         </Route>
-
       </Switch> 
     </ThemeProvider>
-  ) : null;
+  ) 
 };
 
 export default App;
