@@ -35,5 +35,9 @@ export const useStyles = makeStyles({
     '&:hover': {
       backgroundColor: '#e8e8e8'
     }
+  },
+  linkStyle: {
+    textDecoration: 'none',
+    color: 'inherit'
   }
 });

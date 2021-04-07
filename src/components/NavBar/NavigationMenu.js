@@ -12,7 +12,7 @@ import {
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { useStyles } from "./NavBarStyles";
-
+import {Link} from 'react-router-dom'
 import { Menu as MenuIcon } from "@material-ui/icons";
 
 const NavigationMenu = () => {
@@ -26,6 +26,8 @@ const NavigationMenu = () => {
   const handleClickAway = () => {
     if (openGenres) setOpenGenres(false);
   };
+
+
 
   return (
     <>
@@ -46,7 +48,10 @@ const NavigationMenu = () => {
         open={Boolean(anchorElement)}
         keepMounted
       >
-        <MenuItem>Home</MenuItem>
+
+        <MenuItem>
+          <Link to='/' className={classes.linkStyle} >Home</Link>
+        </MenuItem>
 
         <ClickAwayListener>
           <MenuItem onClick={() => setOpenGenres(!openGenres)}>
@@ -62,17 +67,23 @@ const NavigationMenu = () => {
               unmountOnExit
             >
               <List disablePadding >
-                <ListItem className={classes.nested}>Computer Science</ListItem>
-                <ListItem className={classes.nested}>Finance</ListItem>
-                <ListItem className={classes.nested}>Physics</ListItem>
-                <ListItem className={classes.nested}>Psychology</ListItem>
+                <ListItem className={classes.nested}>
+                  <Link to='computer-science' className={classes.linkStyle}>Computer Science</Link>
+                </ListItem>
+                <ListItem className={classes.nested}>
+                  <Link to='/finance' className={classes.linkStyle}>Finance</Link>
+                </ListItem>
               </List>
               
             </Collapse> 
           </MenuItem>
         </ClickAwayListener>
 
-        <MenuItem>About Us</MenuItem>
+        <MenuItem>
+          <Link to='about-us' className={classes.linkStyle} >
+             About Us
+          </Link>
+        </MenuItem>
       </Menu>
     </>
   );

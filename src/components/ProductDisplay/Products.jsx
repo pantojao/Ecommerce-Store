@@ -17,6 +17,7 @@ const Products = ({ reference, productInfo }) => {
   const handleFilter = (event) => {
     setCurrentFilter(event.target.value);
   };
+  
   const classes = useStyles();
   return (
     <main ref={reference}>
@@ -40,7 +41,7 @@ const Products = ({ reference, productInfo }) => {
         </Select>
       </FormControl>
 
-      <ProductDisplay productInfo={productInfo} filter={currentFilter} />
+      <ProductDisplay productInfo={productInfo}/>
     </main>
   );
 };
