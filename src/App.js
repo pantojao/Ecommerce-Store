@@ -5,12 +5,13 @@ import HeroHeader from "./components/Hero/HeroHeader";
 import { theme } from "./MyTheme";
 import { ThemeProvider } from "@material-ui/core";
 import { commerce } from "./CommerceInstance";
-import { Switch, useLocation } from "react-router-dom";
+import { Switch, useLocation, Route } from "react-router-dom";
 import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
 
 const App = () => {
   const [products, setProducts] = useState(false);
   const [categories, setCatagories] = useState([]);
+
 
   const location = useLocation();
   const scrollToProducts = (ref) => {
@@ -20,14 +21,10 @@ const App = () => {
   const productsElement = useRef();
 
   const fetchProducts = async (category) => {
-    console.log(category)
     if (category.length) {
-
-      const productList = await commerce.products.list({'category_id': [category[0].id], 'limit': 5});
+      const productList = await commerce.products.list({'category_id': [category[0].id]});
       setProducts(productList);
-
     } else {
-
       const productList = await commerce.products.list();
       setProducts(productList);
     }
@@ -55,7 +52,6 @@ const App = () => {
   }, []);
 
   useEffect(async () => {
-    console.log('changes url')
     const currentCategory = await fetchCurrentCategory(categories)
     fetchProducts(currentCategory)
   }, [location]);
@@ -65,20 +61,19 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <NavBar />
 
-      <Switch path="/">
-        <ProductDisplay productInfo={products.data} />
-      </Switch>
+      <Switch>
+        <Route exact path="/:category">
+          <ProductDisplay productInfo={products.data} genre/>
+        </Route>
 
-      {/* <Switch exact path="/">
-        <div
-          style={{ position: "relative", width: "100%", overflow: "hidden" }}
-        >
-          <HeroHeader
-            scrollToProducts={() => scrollToProducts(productsElement)}
-          />
-          <Products reference={productsElement} productInfo={products.data} />
-        </div>
-      </Switch> */}
+        <Route exact path="/">
+          <div style={{ overflow: "hidden" }}>
+            <HeroHeader scrollToProducts={() => scrollToProducts(productsElement)} />
+            <Products reference={productsElement} productInfo={products.data} />
+          </div>
+        </Route>
+
+      </Switch> 
     </ThemeProvider>
   ) : null;
 };

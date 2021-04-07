@@ -2,11 +2,13 @@ import React, {useState} from 'react'
 import { Grid, Typography } from "@material-ui/core";
 import Product from "../Product/Product";
 
-const ProductDisplay = ({productInfo}) => {
-   
+const ProductDisplay = ({productInfo, genre}) => {
+
+  const subjectTitle = genre ? `For ${productInfo[0].categories[0].name}` : ''
+
    return (
       <main style={{maxWidth: "100%", position: 'relative', paddingTop: '2em'}} >
-        <Typography align='center' variant='h3'>our top picks</Typography>
+        <Typography align='center' variant='h3'>{`Our Top Picks ${subjectTitle}`}</Typography>
         <Grid
           container
           spacing={3}

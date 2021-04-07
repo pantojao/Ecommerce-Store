@@ -41,7 +41,7 @@ const Products = ({ reference, productInfo }) => {
         </Select>
       </FormControl>
 
-      <ProductDisplay productInfo={productInfo}/>
+      <ProductDisplay productInfo={productInfo} />
     </main>
   );
 };
