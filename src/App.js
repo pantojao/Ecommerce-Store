@@ -5,48 +5,80 @@ import HeroHeader from "./components/Hero/HeroHeader";
 import { theme } from "./MyTheme";
 import { ThemeProvider } from "@material-ui/core";
 import { commerce } from "./CommerceInstance";
-import { BrowserRouter as Router, Switch, Route, Link, useLocation } from "react-router-dom";
+import { Switch, useLocation } from "react-router-dom";
 import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
 
 const App = () => {
   const [products, setProducts] = useState(false);
-  const location = useLocation()
-  console.log(location)
+  const [categories, setCatagories] = useState([]);
 
-  const scrollToProducts = (ref) =>
-  ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  const location = useLocation();
+  const scrollToProducts = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const productsElement = useRef();
 
-  const fetchProducts = async () => {
-    try {
+  const fetchProducts = async (category) => {
+    console.log(category)
+    if (category.length) {
+
+      const productList = await commerce.products.list({'category_id': [category[0].id], 'limit': 5});
+      setProducts(productList);
+
+    } else {
+
       const productList = await commerce.products.list();
       setProducts(productList);
-    } catch (error) {
-      throw error;
     }
   };
 
-  useEffect(() => {
-    fetchProducts();
+  const fetchCategories = async () => {
+    const categoryList = await commerce.categories.list();
+    setCatagories(categoryList.data);
+    return categoryList.data
+  };
+
+  const fetchCurrentCategory = async (AllCategories) => {
+    const currentSlug = location.pathname.slice(1);
+    const currentCategory = AllCategories.filter((category) => {
+      return category.slug == currentSlug;
+    });
+    return currentCategory
+  }
+
+
+  useEffect(async() => {
+    const AllCategories = await fetchCategories();
+    const currentCategory = await fetchCurrentCategory(AllCategories);
+    fetchProducts(currentCategory);
   }, []);
 
-  useEffect(() => {
-      console.log('location changed')
-  }, [location])
+  useEffect(async () => {
+    console.log('changes url')
+    const currentCategory = await fetchCurrentCategory(categories)
+    fetchProducts(currentCategory)
+  }, [location]);
 
 
   return products ? (
     <ThemeProvider theme={theme}>
-        <NavBar />
-        <Switch>
-          <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-            <HeroHeader scrollToProducts={() => scrollToProducts(productsElement)} />
-            <Products reference={productsElement} productInfo={products.data} />
-          </div>
-        </Switch>
-        <Switch path="/finance">
-          <ProductDisplay productInfo={products.data} />
-        </Switch>
+      <NavBar />
+
+      <Switch path="/">
+        <ProductDisplay productInfo={products.data} />
+      </Switch>
+
+      {/* <Switch exact path="/">
+        <div
+          style={{ position: "relative", width: "100%", overflow: "hidden" }}
+        >
+          <HeroHeader
+            scrollToProducts={() => scrollToProducts(productsElement)}
+          />
+          <Products reference={productsElement} productInfo={products.data} />
+        </div>
+      </Switch> */}
     </ThemeProvider>
   ) : null;
 };
