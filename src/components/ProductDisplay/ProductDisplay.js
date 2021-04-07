@@ -14,8 +14,8 @@ const ProductDisplay = ({reference, productInfo, genre}) => {
   const subjectTitle = genre && productInfo !== null ? `For ${productInfo[0].categories[0].name}` : ''
   
    return (
-      <main ref={reference} style={{maxWidth: "100%", position: 'relative', paddingTop: '2em'}} >
-        <Typography align='center' variant='h3'>{`Our Top Picks ${subjectTitle}`}</Typography>
+      <main ref={reference} style={{maxWidth: "100%", position: 'relative', paddingTop: '4em'}} >
+    <Typography align='center' variant='h3' fontStyle='bold' fontWeight={700}>{`Our Top Picks ${subjectTitle}`}</Typography>
 
         <Grid container spacing={3} alignItems="center"  >
 

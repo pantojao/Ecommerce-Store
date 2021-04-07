@@ -56,13 +56,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavBar />
+      
       <Switch>
         <Route exact path="/:category">
+          <NavBar mutable={false} startingColor='black'/>
           <ProductDisplay productInfo={products ? products.data : null} genre />
         </Route>
 
         <Route exact path="/">
+          <NavBar mutable={true} startingColor='transparent' endingColor='black'/>
           <div style={{ overflow: "hidden" }}>
             <HeroHeader scrollToProducts={() => scrollToProducts(productsElement)} />
             <ProductDisplay reference={productsElement} productInfo={products ? products.data : null} genre={false}/>

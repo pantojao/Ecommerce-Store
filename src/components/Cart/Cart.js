@@ -1,6 +1,7 @@
 import { Container, Typography, Button } from "@material-ui/core";
 import { commerce } from "../../CommerceInstance";
 import React, { useState, useEffect } from "react";
+import {Redirect} from 'react-router-dom'
 import CartItem from "./CartItem";
 import useStyles from "./CartStyles";
 const Cart = ({hideCart}) => {
@@ -15,7 +16,7 @@ const Cart = ({hideCart}) => {
   const refreshCart = (newCart) => {
     setCart(newCart)
   }
-
+  console.log(cart)
     return cart && (
       <>
         <Container className={classes.overlay} onClick={hideCart}/> 
@@ -36,7 +37,9 @@ const Cart = ({hideCart}) => {
           }
           <Typography variant="subtitle2" align='center'>Subtotal</Typography>
           <Typography variant='h6' align='center'>{cart.subtotal.formatted_with_symbol}</Typography>
-          <Button color="primary" variant='contained' size='large' className={classes.checkoutButton}>Check Out</Button>
+          <a href={cart.hosted_checkout_url}>
+            <Button color="primary" variant='contained' size='large' className={classes.checkoutButton}>Check Out</Button>
+          </a>
          </Container> 
 
 

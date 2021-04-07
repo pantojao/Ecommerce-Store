@@ -6,18 +6,10 @@ export const useStyles = makeStyles({
     justifyContent: "space-between",
     zIndex: '20'
   },
-  navLight: {
-    backgroundColor: "transparent",
-    color: "white",
+  navBar: {
     position: "fixed",
-    maxWidth: "100%",
     boxShadow: "none",
     zIndex:'20'
-  },
-  navDark: {
-    backgroundColor: "white",
-    color: "black",
-    zIndex: '20'
   },
   cartContainer: {
     position: "fixed",

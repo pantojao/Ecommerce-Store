@@ -16,6 +16,6 @@ export const theme = createMuiTheme({
     },
 
     typography: {
-        fontFamily:[ 'Lato', 'sans-serif'].join(',')
+        fontFamily:[ 'PT Serif', 'sans-serif'].join(',')
     }
 })
