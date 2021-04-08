@@ -3,14 +3,16 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   relative: {
-    marginTop: "3em",
+    maxWidth: "100%",
+    position: "relative",
+    paddingTop: "4em",
   },
-  root: {
-    boxShadow: "none",
-  },
-  formControl: {
-    // margin: "1em 2em 1em auto",
-    // float: "right",
-    width: "200px",
-  },
+  header: {
+    padding: '0em .5em',
+    textAlign: 'center',
+    fontWeight: '700'
+  }, 
+  skeleton: {
+    margin: '0 auto'
+  }
 }));

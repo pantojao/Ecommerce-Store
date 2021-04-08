@@ -1,8 +1,6 @@
--make background unscrollable when overlay in on (done)
+
 
 -make the stuff mobile responsive 
--add the checkout form to the buyitnow button (done)  
-
 -allow for varaints to be place 
 -decrease the size of titles 
 -add more categories

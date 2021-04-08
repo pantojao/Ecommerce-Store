@@ -77,22 +77,6 @@ const ViewProduct = ({
         <Typography align="center">{price}</Typography>
         <Typography align="center">Tax Included</Typography>
 
-        <ToggleButtonGroup
-          className={classes.buttonContainer}
-          value={variant}
-          exclusive
-          onChange={changeVariant}
-          aria-label="Product Variant"
-        >
-          <ToggleButton value={300} aria-label="300ml">
-            <Typography>Paper Back</Typography>
-          </ToggleButton>
-
-          <ToggleButton value={550} aria-label="550ml">
-            <Typography>Hard Cover</Typography>
-          </ToggleButton>
-        </ToggleButtonGroup>
-
         <Container>
           <Typography align="center" variant="subtitle2">
             Quantity
@@ -128,10 +112,29 @@ const ViewProduct = ({
           </Button>
         </Container>
 
-        <div className={classes.description} dangerouslySetInnerHTML={{__html: `${description}`}}></div>
+        <div
+          className={classes.description}
+          dangerouslySetInnerHTML={{ __html: `${description}` }}
+        ></div>
       </Card>
     </>
   );
 };
 
 export default ViewProduct;
+
+// <ToggleButtonGroup
+// className={classes.buttonContainer}
+// value={variant}
+// exclusive
+// onChange={changeVariant}
+// aria-label="Product Variant"
+// >
+// <ToggleButton value={300} aria-label="300ml">
+//   <Typography>Paper Back</Typography>
+// </ToggleButton>
+
+// <ToggleButton value={550} aria-label="550ml">
+//   <Typography>Hard Cover</Typography>
+// </ToggleButton>
+// </ToggleButtonGroup>
