@@ -48,10 +48,11 @@ const NavigationMenu = () => {
         open={Boolean(anchorElement)}
         keepMounted
       >
-
-        <MenuItem>
-          <Link to='/' className={classes.linkStyle} >Home</Link>
-        </MenuItem>
+        <Link to='/' className={classes.linkStyle}>
+          <MenuItem>
+            Home
+          </MenuItem>
+        </Link>
 
         <ClickAwayListener>
           <MenuItem onClick={() => setOpenGenres(!openGenres)}>
@@ -66,13 +67,14 @@ const NavigationMenu = () => {
               timeout="auto"
               unmountOnExit
             >
-              <List disablePadding >
-                <ListItem className={classes.nested}>
-                  <Link to='computer-science' className={classes.linkStyle}>Computer Science</Link>
-                </ListItem>
-                <ListItem className={classes.nested}>
-                  <Link to='/finance' className={classes.linkStyle}>Finance</Link>
-                </ListItem>
+              <List disablePadding>
+                <Link to='computer-science' className={classes.linkStyle}>
+                    <ListItem className={classes.nested}> Computer Science</ListItem>
+                </Link>
+
+                <Link to='/finance' className={classes.linkStyle}>
+                  <ListItem className={classes.nested}> Finance </ListItem>
+                </Link>
               </List>
               
             </Collapse> 
