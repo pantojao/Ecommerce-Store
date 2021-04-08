@@ -13,7 +13,7 @@ export default makeStyles(() => ({
   detailsCard: {
     position: 'fixed',
     height: '100vh',
-    width: '40%',
+    width: '50%',
     overflow: 'auto',
     top: '0',
     right: '0',

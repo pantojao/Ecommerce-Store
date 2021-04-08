@@ -14,7 +14,7 @@ export const useStyles = makeStyles({
     },
     heroContent: {
         color: 'white',
-        width: '70%',
+        width: '80%',
         minHeight: '20%',
         position: 'absolute',
         top: '50vh',

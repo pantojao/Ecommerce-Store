@@ -42,9 +42,10 @@ const ViewProduct = ({
 
   const addToCart = async() => {
     try {
+      hideDetails()
       const response = await commerce.cart.add(productID, quantity)  
       setUser(response.cart)
-      hideDetails()
+      
     } catch (error) {
       throw error
     }

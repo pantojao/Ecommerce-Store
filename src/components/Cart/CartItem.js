@@ -14,7 +14,8 @@ import React, { useState } from "react";
 
 const CartItem = ({ productID, name, media, price, currentQuantity, changeQuanity, removeItem }) => {
   const classes = useStyles();
-  console.log("item")
+
+  
   return (
     <>
       <Paper className={classes.cartItem}>
