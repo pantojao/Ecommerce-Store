@@ -1,6 +1,6 @@
 -increment shopping cart badge
--add about me section 
+-add about me section (Done)
 -implement redirect for checkout   (Done)
--changing navbar color depending on position
+-changing navbar color depending on position (Done)
 -Add new font for the headers (Done)
 -Add image preview to reduce wait time (done)

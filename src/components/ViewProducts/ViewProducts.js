@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
 import {
   Card,
   Container,
@@ -12,6 +12,8 @@ import {
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import {commerce} from '../../CommerceInstance'
 import { Add, Remove } from "@material-ui/icons";
+import {UserContext} from '../../userContext'
+
 import useStyles from "./ViewProductsStyles";
 
 const ViewProduct = ({
@@ -25,7 +27,8 @@ const ViewProduct = ({
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState(550);
-  
+  const { user, setUser } = useContext(UserContext);
+
   const changeQuanity = (expression) => {
     const newQuantity = quantity + expression;
     if (newQuantity > 0) {
@@ -39,7 +42,8 @@ const ViewProduct = ({
 
   const addToCart = async() => {
     try {
-      await commerce.cart.add(productID, quantity)  
+      const response = await commerce.cart.add(productID, quantity)  
+      setUser(response.cart)
       hideDetails()
     } catch (error) {
       throw error

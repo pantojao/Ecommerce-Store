@@ -80,9 +80,9 @@ const NavigationMenu = () => {
         </ClickAwayListener>
 
         <MenuItem>
-          <Link to='about-us' className={classes.linkStyle} >
+          <a to='about-us' href='https://www.joelpantoja.com' className={classes.linkStyle} >
              About Us
-          </Link>
+          </a>
         </MenuItem>
       </Menu>
     </>
