@@ -1,4 +1,4 @@
-import React, {useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Card,
   Container,
@@ -10,9 +10,9 @@ import {
   CardMedia,
 } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
-import {commerce} from '../../CommerceInstance'
+import { commerce } from "../../CommerceInstance";
 import { Add, Remove } from "@material-ui/icons";
-import {UserContext} from '../../userContext'
+import { UserContext } from "../../userContext";
 
 import useStyles from "./ViewProductsStyles";
 
@@ -22,7 +22,7 @@ const ViewProduct = ({
   description,
   imageSource,
   hideDetails,
-  productID
+  productID,
 }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
@@ -40,16 +40,32 @@ const ViewProduct = ({
     setVariant(newVariant);
   };
 
-  const addToCart = async() => {
+  const addToCart = async () => {
     try {
-      hideDetails()
-      const response = await commerce.cart.add(productID, quantity)  
-      setUser(response.cart)
-      
+      hideDetails();
+      const response = await commerce.cart.add(productID, quantity);
+      setUser(response.cart);
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
+  };
+
+  const checkoutCurrentItem = async () => {
+    try {
+      const newCart = await commerce.cart.refresh();
+      const response = await commerce.cart.add({
+        cart_id: newCart.id,
+        id: productID,
+        quantity: quantity,
+      });
+      if (response.success) {
+        window.location.href = response.cart.hosted_checkout_url;
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
+
   return (
     <>
       <Box className={classes.overlay} onClick={() => hideDetails()}></Box>
@@ -85,7 +101,9 @@ const ViewProduct = ({
             <IconButton size="small" onClick={() => changeQuanity(-1)}>
               <Remove />
             </IconButton>
-            <Typography variant="h6" style={{margin: '0em 1em'}}>{quantity}</Typography>
+            <Typography variant="h6" style={{ margin: "0em 1em" }}>
+              {quantity}
+            </Typography>
             <IconButton size="small" onClick={() => changeQuanity(1)}>
               <Add />
             </IconButton>
@@ -93,10 +111,19 @@ const ViewProduct = ({
         </Container>
 
         <Container className={classes.actionButtons}>
-          <Button onClick={() => addToCart(productID, quantity)} variant="contained" color="secondary">
+          <Button
+            onClick={() => addToCart(productID, quantity)}
+            variant="contained"
+            color="secondary"
+          >
             Add To Cart
           </Button>
-          <Button variant="contained" color="primary">
+
+          <Button
+            onClick={() => checkoutCurrentItem()}
+            variant="contained"
+            color="primary"
+          >
             Buy It Now
           </Button>
         </Container>

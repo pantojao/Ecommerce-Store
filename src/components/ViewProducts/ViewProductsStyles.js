@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
   overlay: {
-    backgroundColor: 'transparent', 
+    backgroundColor: 'tranparent', 
+    overflow: 'scroll-x',
     width: '100vw',
     height: '100vh',
     zIndex: '5',
@@ -18,7 +19,6 @@ export default makeStyles(() => ({
     top: '0',
     right: '0',
     zIndex: '100',
-   
   },
   media: {
     margin: '1.5em auto', 

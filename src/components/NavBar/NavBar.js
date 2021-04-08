@@ -26,7 +26,6 @@ const NavBar = ({mutable, startingColor, endingColor}) => {
   navRef.current = currentColor  
 
   useEffect(() => {
-
     if (mutable){
       const handleScroll = () => {
         const show = window.scrollY > 670
@@ -38,6 +37,14 @@ const NavBar = ({mutable, startingColor, endingColor}) => {
       return () => {document.removeEventListener('scroll', handleScroll)}
    }
   })
+  const handleShowCart = () => {
+    if (showCart){
+      document.body.style.overflow = 'auto' 
+    } else { 
+      document.body.style.overflow = 'hidden' 
+    }
+    setShowCart(!showCart)
+  }
 
    return user !==null ? (
     <>
@@ -45,7 +52,7 @@ const NavBar = ({mutable, startingColor, endingColor}) => {
         <Toolbar className={classes.nav}>
           <NavigationMenu />
           <Typography variant="h4" fontStyle='bold' fontWeight={700}>FLOW</Typography>
-          <IconButton size="medium" onClick={() => setShowCart(!showCart)}>
+          <IconButton size="medium" onClick={handleShowCart}>
             <Badge badgeContent={user.total_items} color="error">
               <ShoppingCart style={{ color: "white" }} />
             </Badge>
@@ -57,7 +64,7 @@ const NavBar = ({mutable, startingColor, endingColor}) => {
       {showCart ? (
         <Slide direction="left" in={showCart} timeout={500}>
           <div className={classes.cartContainer}>
-            <Cart hideCart={() => setShowCart()} />
+            <Cart hideCart={handleShowCart} />
           </div>
         </Slide>
       ) : null}

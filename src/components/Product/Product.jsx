@@ -9,8 +9,6 @@ import {
   CardActionArea,
   Container,
 } from "@material-ui/core";
-import Skeleton from '@material-ui/lab/Skeleton';
-import {commerce} from '../../CommerceInstance'
 import useStyles from "./ProductStyles";
 import ViewProduct from "../ViewProducts/ViewProducts";
 
@@ -18,6 +16,14 @@ const Product = ({ name, price, description, imageSource, productID}) => {
   const classes = useStyles();
   const [showDetails, setShowDetails] = useState(false);
 
+  const changeDisplay = () => {
+    if (showDetails){
+      document.body.style.overflow = 'auto' 
+    } else { 
+      document.body.style.overflow = 'hidden' 
+    }
+    setShowDetails(!showDetails)
+  }
 
   return (
       <Container className={classes.relative}>
@@ -30,7 +36,7 @@ const Product = ({ name, price, description, imageSource, productID}) => {
                 From {price}
               </Typography>
               <Button
-                onClick={() => setShowDetails(!showDetails)}
+                onClick={() => changeDisplay()}
                 className={classes.viewOptionsButton}
                 size="small"
                 variant="contained"
@@ -49,7 +55,7 @@ const Product = ({ name, price, description, imageSource, productID}) => {
                 price={price}
                 description={description}
                 imageSource= {imageSource}
-                hideDetails={() => setShowDetails(!showDetails)}
+                hideDetails={() => changeDisplay()}
                 productID={productID}
               />
             </div>

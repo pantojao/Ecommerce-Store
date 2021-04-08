@@ -1,6 +1,8 @@
--increment shopping cart badge
--add about me section (Done)
--implement redirect for checkout   (Done)
--changing navbar color depending on position (Done)
--Add new font for the headers (Done)
--Add image preview to reduce wait time (done)
+-make background unscrollable when overlay in on (done)
+
+-make the stuff mobile responsive 
+-add the checkout form to the buyitnow button (done)  
+
+-allow for varaints to be place 
+-decrease the size of titles 
+-add more categories
