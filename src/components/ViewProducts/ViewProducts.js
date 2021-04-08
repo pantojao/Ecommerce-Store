@@ -13,6 +13,7 @@ import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import { commerce } from "../../CommerceInstance";
 import { Add, Remove } from "@material-ui/icons";
 import { UserContext } from "../../userContext";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'; 
 
 import useStyles from "./ViewProductsStyles";
 
@@ -63,15 +64,19 @@ const ViewProduct = ({
 
   return (
     <>
-      <Box className={classes.overlay} onClick={hideDetails}></Box>
+      <Container className={classes.overlay} onClick={hideDetails} />
+
+
       <Card className={classes.detailsCard}>
-        <CardMedia className={classes.media} image={imageSource} />
-        <Typography margin="1em" align="center">
+        <ExitToAppIcon className={classes.exitIcon} onClick={hideDetails} /> 
+        <CardMedia className={classes.media} image={imageSource} component='img' />
+        <Typography align="center">
           {name}
         </Typography>
+        <br/>
         <Typography align="center">{price}</Typography>
         <Typography align="center">Tax Included</Typography>
-
+        <br /> 
         <Container>
           <Typography align="center" variant="subtitle2">
             Quantity

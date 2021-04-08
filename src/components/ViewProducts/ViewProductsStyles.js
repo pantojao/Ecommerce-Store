@@ -21,10 +21,18 @@ export default makeStyles(() => ({
     zIndex: '100',
     padding: '1em',
   },
+
+  exitIcon : {
+    position:'absolute', 
+    right: '2%',
+    top: '1%'
+  }, 
   media: {
-    margin: '1.5em auto', 
-    height: '50%',
-    width: '55%'
+    margin: '20px auto', 
+    height: '450px',
+    objectFit: 'contain'
+
+
   },
 
   buttonContainer: {
@@ -36,7 +44,8 @@ export default makeStyles(() => ({
 
   actionButtons: {
     display: 'flex', 
-    justifyContent: 'space-evenly',
+    width: '300px',
+    justifyContent: 'space-around',
     marginTop: '1.5em',
   
   },
