@@ -68,7 +68,7 @@ const ViewProduct = ({
 
   return (
     <>
-      <Box className={classes.overlay} onClick={() => hideDetails()}></Box>
+      <Box className={classes.overlay} onClick={hideDetails}></Box>
       <Card className={classes.detailsCard}>
         <CardMedia className={classes.media} image={imageSource} />
         <Typography margin="1em" align="center">
@@ -127,6 +127,8 @@ const ViewProduct = ({
             Buy It Now
           </Button>
         </Container>
+
+        <div className={classes.description} dangerouslySetInnerHTML={{__html: `${description}`}}></div>
       </Card>
     </>
   );

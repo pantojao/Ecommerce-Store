@@ -19,6 +19,7 @@ export default makeStyles(() => ({
     top: '0',
     right: '0',
     zIndex: '100',
+    padding: '1em'
   },
   media: {
     margin: '1.5em auto', 
@@ -41,5 +42,9 @@ export default makeStyles(() => ({
   quantityContainer: {
     display: 'flex', 
     justifyContent: 'center',
+  }, 
+  description: { 
+    margin: '3em auto', 
+    lineHeight: '30px'
   }
 }));

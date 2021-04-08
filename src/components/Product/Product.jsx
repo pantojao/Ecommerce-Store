@@ -36,7 +36,7 @@ const Product = ({ name, price, description, imageSource, productID}) => {
                 From {price}
               </Typography>
               <Button
-                onClick={() => changeDisplay()}
+                onClick={changeDisplay}
                 className={classes.viewOptionsButton}
                 size="small"
                 variant="contained"
@@ -55,7 +55,7 @@ const Product = ({ name, price, description, imageSource, productID}) => {
                 price={price}
                 description={description}
                 imageSource= {imageSource}
-                hideDetails={() => changeDisplay()}
+                hideDetails={changeDisplay}
                 productID={productID}
               />
             </div>
