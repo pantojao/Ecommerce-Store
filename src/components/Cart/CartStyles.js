@@ -1,6 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
+  cartHeader: { 
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center', 
+    marginTop: '1em'
+  },
   cartDetails: {
     position: "fixed",
     height: "100vh",
@@ -59,13 +65,20 @@ export default makeStyles(() => ({
 
   clear: {
     position: 'absolute',
-    right: '2.5%',
-    top: '2.5%'
+    right: '1%',
+    top: '1%'
   },
 
   "@media (max-width: 700px)": {
     cartDetails: {
       width: '80%', 
-    }
+    },
+    cartItemInfo: {
+      width: "90%",
+    },
+    cartItemImage: {
+      marginBottom: '1em'
+    },
+    
   },
 }));

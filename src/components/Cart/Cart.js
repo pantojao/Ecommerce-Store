@@ -1,6 +1,7 @@
 import { Container, Typography, Button } from "@material-ui/core";
 import { commerce } from "../../CommerceInstance";
 import React, { useState, useEffect, useContext } from "react";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'; 
 import { UserContext } from "../../userContext";
 import CartItem from "./CartItem";
 import useStyles from "./CartStyles";
@@ -25,7 +26,6 @@ const Cart = ({ hideCart }) => {
         quantity: newQuantity,
       });
       if (response.success) await setUser(response.cart);
-
     } catch (error) {
       throw error;
     }
@@ -40,14 +40,16 @@ const Cart = ({ hideCart }) => {
     }
   };
 
-
   return user ? (
     <>
-      <Container className={classes.overlay} onClick={hideCart} />
-      <Typography variant="h2" align="center">
-        Your Cart
-      </Typography>
       <Container className={classes.cartDetails}>
+        <Container className={classes.cartHeader} onClick={hideCart}>
+          <Typography variant="h3" align="center">
+            Your Cart
+          </Typography>
+          <ExitToAppIcon fontSize='medium'/>
+        </Container>
+
         {user.line_items.map((product) => {
           return (
             <CartItem
@@ -78,6 +80,7 @@ const Cart = ({ hideCart }) => {
           </Button>
         </a>
       </Container>
+      <Container className={classes.overlay} onClick={hideCart} />
     </>
   ) : null;
 };

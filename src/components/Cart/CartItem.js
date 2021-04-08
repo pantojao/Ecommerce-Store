@@ -37,7 +37,7 @@ const CartItem = ({ productID, name, media, price, currentQuantity, changeQuanit
               <IconButton size="small" onClick={() => changeQuanity(-1, productID)}>
                 <Remove />
               </IconButton>
-              <Typography variant="h6" style={{margin: '0 auto'}}>
+              <Typography variant="h6" align='center' style={{margin: '0 auto'}}>
                 {currentQuantity}
               </Typography>
               <IconButton size="small" onClick={() => changeQuanity(1, productID)}>
@@ -47,7 +47,7 @@ const CartItem = ({ productID, name, media, price, currentQuantity, changeQuanit
           </Container>
         </Container>
         <IconButton className={classes.clear}>
-          <ClearIcon onClick={() => removeItem(productID)} />
+          <ClearIcon fontSize="small" onClick={() => removeItem(productID)} />
         </IconButton>
       </Paper>
     </>

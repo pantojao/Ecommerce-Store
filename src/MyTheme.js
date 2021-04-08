@@ -24,14 +24,20 @@ export const theme = createMuiTheme({
         },
         subtitle1: {
             '@media (max-width: 600px)': {
-                fontSize: '.9rem'
+                fontSize: '.85rem'
             }
         },
         subtitle2: {
             '@media (max-width: 600px)': {
                 fontSize: '.8rem'
             }
-        }
+        },
+        h3: {
+            '@media (max-width: 600px)': {
+                fontSize: '1.5rem'
+            }
+        },
+
 
     }
 })
