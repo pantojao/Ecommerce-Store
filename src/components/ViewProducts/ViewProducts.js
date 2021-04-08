@@ -26,7 +26,6 @@ const ViewProduct = ({
 }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
-  const [variant, setVariant] = useState(550);
   const { user, setUser } = useContext(UserContext);
 
   const changeQuanity = (expression) => {
@@ -34,10 +33,6 @@ const ViewProduct = ({
     if (newQuantity > 0) {
       setQuantity(newQuantity);
     }
-  };
-
-  const changeVariant = (event, newVariant) => {
-    setVariant(newVariant);
   };
 
   const addToCart = async () => {
@@ -99,6 +94,7 @@ const ViewProduct = ({
             onClick={() => addToCart(productID, quantity)}
             variant="contained"
             color="secondary"
+            size='small'
           >
             Add To Cart
           </Button>
@@ -107,6 +103,7 @@ const ViewProduct = ({
             onClick={() => checkoutCurrentItem()}
             variant="contained"
             color="primary"
+            size='small'
           >
             Buy It Now
           </Button>

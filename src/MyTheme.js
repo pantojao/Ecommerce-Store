@@ -22,6 +22,11 @@ export const theme = createMuiTheme({
                 fontSize: '1.4rem'
             }
         },
+        subtitle1: {
+            '@media (max-width: 600px)': {
+                fontSize: '.9rem'
+            }
+        },
         subtitle2: {
             '@media (max-width: 600px)': {
                 fontSize: '.8rem'

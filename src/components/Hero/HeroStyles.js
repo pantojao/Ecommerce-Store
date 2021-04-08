@@ -11,12 +11,8 @@ export const useStyles = makeStyles({
         height: '100vh',
         width: '100%',
         overflow:'hidden',
-        outline: '2px red solid',
-    
-
     },
     heroContent: {
-        
         color: 'white',
         minwidth: '80%',
         minHeight: '25%',
@@ -27,9 +23,6 @@ export const useStyles = makeStyles({
         flexFlow: 'column wrap',
         justifyContent: 'space-evenly',
         alignItems: 'flex-end',
-
-     
-        // outline: '2px yellow solid'
     },
 
 })

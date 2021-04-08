@@ -32,11 +32,12 @@ const CartItem = ({ productID, name, media, price, currentQuantity, changeQuanit
             {price}
           </Typography>
           <Container>
+
             <Toolbar className={classes.quantityContainer}>
               <IconButton size="small" onClick={() => changeQuanity(-1, productID)}>
                 <Remove />
               </IconButton>
-              <Typography variant="h6" style={{ margin: "0em 1em" }}>
+              <Typography variant="h6" style={{margin: '0 auto'}}>
                 {currentQuantity}
               </Typography>
               <IconButton size="small" onClick={() => changeQuanity(1, productID)}>

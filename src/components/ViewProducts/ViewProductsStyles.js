@@ -19,7 +19,7 @@ export default makeStyles(() => ({
     top: '0',
     right: '0',
     zIndex: '100',
-    padding: '1em'
+    padding: '1em',
   },
   media: {
     margin: '1.5em auto', 
@@ -37,8 +37,10 @@ export default makeStyles(() => ({
   actionButtons: {
     display: 'flex', 
     justifyContent: 'space-evenly',
-    marginTop: '1.5em'
+    marginTop: '1.5em',
+  
   },
+
   quantityContainer: {
     display: 'flex', 
     justifyContent: 'center',
@@ -46,5 +48,16 @@ export default makeStyles(() => ({
   description: { 
     margin: '3em auto', 
     lineHeight: '30px'
-  }
+  },
+  '@media (max-width: 600px)': {
+    detailsCard: {
+      width: '75%',
+    },
+    description: {
+      fontSize: '1rem', 
+  
+    }
+   }
+
+
 }));
