@@ -11,19 +11,25 @@ export const useStyles = makeStyles({
         height: '100vh',
         width: '100%',
         overflow:'hidden',
+        outline: '2px red solid',
+    
+
     },
     heroContent: {
+        
         color: 'white',
-        width: '80%',
-        minHeight: '20%',
+        minwidth: '80%',
+        minHeight: '25%',
         position: 'absolute',
         top: '50vh',
         right: '5%',
         display: 'flex',
         flexFlow: 'column wrap',
-        justifyContent: 'space-around',
-        alignItems: 'flex-end'
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-end',
 
+     
+        // outline: '2px yellow solid'
     },
 
 })

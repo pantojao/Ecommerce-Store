@@ -16,6 +16,17 @@ export const theme = createMuiTheme({
     },
 
     typography: {
-        fontFamily:[ 'PT Serif', 'sans-serif'].join(',')
+        fontFamily:[ 'PT Serif', 'sans-serif'].join(','),
+        h5: {
+            '@media (max-width: 600px)': {
+                fontSize: '1.4rem'
+            }
+        },
+        subtitle2: {
+            '@media (max-width: 600px)': {
+                fontSize: '.8rem'
+            }
+        }
+
     }
 })

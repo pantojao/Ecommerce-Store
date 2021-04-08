@@ -9,7 +9,7 @@ const HeroHeader = ({scrollToProducts}) => {
     return (
         <Box maxWidth="sm" className={classes.root}>
             <Container className={classes.heroContent}>
-                <Typography variant="h4" align='right'>Find Your Next Read</Typography>
+                <Typography variant="h5" align='right'>Find Your Next Read</Typography>
                 <Typography variant="subtitle2" align="right">We Find Must Reads So You Don't Have To</Typography>
                 <Button color="secondary" variant="contained" onClick = {scrollToProducts}>
                     Shop Now
