@@ -9,11 +9,44 @@ import {
 import { Remove, Add } from "@material-ui/icons";
 import ClearIcon from "@material-ui/icons/Clear";
 import useStyles from "./CartStyles.js";
-import React, { useState } from "react";
+import { commerce } from "../../CommerceInstance";
+import React, { useContext } from "react";
+import { UserContext } from "../../userContext";
 
-
-const CartItem = ({ productID, name, media, price, currentQuantity, changeQuanity, removeItem }) => {
+const CartItem = ({ productID, name, media, price, currentQuantity }) => {
+  const { user, setUser } = useContext(UserContext);
   const classes = useStyles();
+
+
+  const findItem = async (productID) => {
+    const allItems = user.line_items;
+    return allItems.find((product) => product.id == productID);
+  };
+
+  const changeQuanity = async (expression, productID) => {
+    const currentItem = await findItem(productID);
+    const newQuantity = currentItem.quantity + expression;
+
+    if (newQuantity < 1) return;
+
+    try {
+      const response = await commerce.cart.update(productID, {
+        quantity: newQuantity,
+      });
+      if (response.success) await setUser(response.cart);
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const removeItem = async (productID) => {
+    try {
+      const response = await commerce.cart.remove(productID);
+      if (response.success) await setUser(response.cart);
+    } catch (error) {
+      throw error;
+    }
+  };
 
   
   return (
@@ -54,4 +87,4 @@ const CartItem = ({ productID, name, media, price, currentQuantity, changeQuanit
   );
 };
 
-export default CartItem;
+export default React.memo(CartItem);

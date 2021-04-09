@@ -1,8 +1,7 @@
 import { Container, Typography, Button } from "@material-ui/core";
-import { commerce } from "../../CommerceInstance";
-import React, { useState, useEffect, useContext } from "react";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp'; 
+import React, { useContext } from "react";
 import { UserContext } from "../../userContext";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'; 
 import CartItem from "./CartItem";
 import useStyles from "./CartStyles";
 
@@ -10,37 +9,7 @@ const Cart = ({ hideCart }) => {
   const { user, setUser } = useContext(UserContext);
   const classes = useStyles();
 
-  const findItem = async (productID) => {
-    const allItems = user.line_items;
-    return allItems.find((product) => product.id == productID);
-  };
-
-  const changeQuanity = async (expression, productID) => {
-    const currentItem = await findItem(productID);
-    const newQuantity = currentItem.quantity + expression;
-
-    if (newQuantity < 1) return;
-
-    try {
-      const response = await commerce.cart.update(productID, {
-        quantity: newQuantity,
-      });
-      if (response.success) await setUser(response.cart);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const removeItem = async (productID) => {
-    try {
-      const response = await commerce.cart.remove(productID);
-      if (response.success) await setUser(response.cart);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  return user ? (
+  return (
     <>
       <Container className={classes.cartDetails}>
         <Container className={classes.cartHeader} onClick={hideCart}>
@@ -58,8 +27,6 @@ const Cart = ({ hideCart }) => {
               media={product.media.source}
               price={product.price.formatted_with_symbol}
               currentQuantity={product.quantity}
-              changeQuanity={changeQuanity}
-              removeItem={removeItem}
             />
           );
         })}
@@ -82,7 +49,7 @@ const Cart = ({ hideCart }) => {
       </Container>
       <Container className={classes.overlay} onClick={hideCart} />
     </>
-  ) : null;
+  )
 };
 
 export default Cart;

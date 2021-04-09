@@ -65,4 +65,4 @@ const Product = ({ name, price, description, imageSource, productID}) => {
 
 };
 
-export default Product;
+export default React.memo(Product);
