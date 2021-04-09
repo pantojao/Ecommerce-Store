@@ -20,7 +20,7 @@ const NavBar = ({mutable, startingColor, endingColor}) => {
   const classes = useStyles();
   const [currentColor, setCurrentColor] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const navRef = useRef() 
   navRef.current = currentColor  

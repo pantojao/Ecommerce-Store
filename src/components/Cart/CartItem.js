@@ -20,7 +20,7 @@ const CartItem = ({ productID, name, media, price, currentQuantity }) => {
 
   const findItem = async (productID) => {
     const allItems = user.line_items;
-    return allItems.find((product) => product.id == productID);
+    return allItems.find((product) => product.id === productID);
   };
 
   const changeQuanity = async (expression, productID) => {

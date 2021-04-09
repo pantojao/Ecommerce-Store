@@ -4,12 +4,10 @@ import {
   Container,
   Button,
   IconButton,
-  Box,
   Toolbar,
   Typography,
   CardMedia,
 } from "@material-ui/core";
-import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import { commerce } from "../../CommerceInstance";
 import { Add, Remove } from "@material-ui/icons";
 import { UserContext } from "../../userContext";
@@ -27,7 +25,7 @@ const ViewProduct = ({
 }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const changeQuanity = (expression) => {
     const newQuantity = quantity + expression;
@@ -64,9 +62,7 @@ const ViewProduct = ({
 
   return (
     <>
-      <Container className={classes.overlay} onClick={hideDetails} />
-
-
+      <Container className={classes.overlay} onClick={hideDetails}><div></div></Container>
       <Card className={classes.detailsCard}>
         <ExitToAppIcon className={classes.exitIcon} onClick={hideDetails} /> 
         <CardMedia className={classes.media} image={imageSource} component='img' />
@@ -125,18 +121,3 @@ const ViewProduct = ({
 
 export default ViewProduct;
 
-// <ToggleButtonGroup
-// className={classes.buttonContainer}
-// value={variant}
-// exclusive
-// onChange={changeVariant}
-// aria-label="Product Variant"
-// >
-// <ToggleButton value={300} aria-label="300ml">
-//   <Typography>Paper Back</Typography>
-// </ToggleButton>
-
-// <ToggleButton value={550} aria-label="550ml">
-//   <Typography>Hard Cover</Typography>
-// </ToggleButton>
-// </ToggleButtonGroup>

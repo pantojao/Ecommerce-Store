@@ -35,7 +35,7 @@ const NavigationMenu = () => {
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleOpen}
-        size="large"
+        size="medium"
       >
         <MenuIcon style={{ color: "white" }} />
       </IconButton>
@@ -54,7 +54,7 @@ const NavigationMenu = () => {
           </MenuItem>
         </Link>
 
-        <ClickAwayListener>
+        <ClickAwayListener onClickAway={handleClickAway}>
           <MenuItem onClick={() => setOpenGenres(!openGenres)}>
             <Typography>
               Genres

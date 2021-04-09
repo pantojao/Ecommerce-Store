@@ -6,8 +6,9 @@ import CartItem from "./CartItem";
 import useStyles from "./CartStyles";
 
 const Cart = ({ hideCart }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { user} = useContext(UserContext);
   const classes = useStyles();
+  
 
   return (
     <>

@@ -44,9 +44,9 @@ const ProductDisplay = ({ reference, productInfo, genre }) => {
               .map((random, index) => {
                 return (
                   <Grid item xs={12} sm={6} lg={3} xl={3} key={index}>
-                    <Skeleton component="Product" className={classes.skeleton}>
-                      {" "}
-                      <Product />{" "}
+                    <Skeleton className={classes.skeleton}>
+            
+                      <Product />
                     </Skeleton>
                   </Grid>
                 );

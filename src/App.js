@@ -1,4 +1,10 @@
-import React, { useRef, useState, useEffect, useMemo } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 import NavBar from "./components/NavBar/NavBar";
 import HeroHeader from "./components/Hero/HeroHeader";
 import { theme } from "./MyTheme";
@@ -13,9 +19,7 @@ const App = () => {
   const [categories, setCatagories] = useState([]);
   const [user, setUser] = useState(null);
 
-  const providerValue = useMemo(() => ({ user, setUser,}),
-    [user, setUser]
-  );
+  const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   const location = useLocation();
 
@@ -24,10 +28,10 @@ const App = () => {
   };
   const productsElement = useRef();
 
-  const fetchCart = async() => {
-    const currentCart = await commerce.cart.retrieve() 
-    setUser(currentCart)
-  }
+  const fetchCart = async () => {
+    const currentCart = await commerce.cart.retrieve();
+    setUser(currentCart);
+  };
 
   const fetchProducts = async (category) => {
     if (category.length) {
@@ -47,27 +51,35 @@ const App = () => {
     return categoryList.data;
   };
 
-  const fetchCurrentCategory = async (AllCategories) => {
-    const currentSlug = location.pathname.slice(1);
-    const currentCategory = AllCategories.filter((category) => {
-      return category.slug == currentSlug;
-    });
-    return currentCategory;
-  };
+  const fetchCurrentCategory = useCallback(
+    (allCategories) => {
+      const currentSlug = location.pathname.slice(1);
+      const currentCategory = allCategories.filter((category) => {
+        return category.slug === currentSlug;
+      });
+      return currentCategory;
+    },
+    [location]
+  );
 
-  useEffect(async () => {
-    await fetchCart()
-    const AllCategories = await fetchCategories();
-    const currentCategory = await fetchCurrentCategory(AllCategories);
-    fetchProducts(currentCategory);
-  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchCart();
+      const allCategories = await fetchCategories();
+      const currentCategory = await fetchCurrentCategory(allCategories);
+      fetchProducts(currentCategory);
+    };
+    fetchData();
+  }, [fetchCurrentCategory]);
 
-  useEffect(async () => {
-    const currentCategory = await fetchCurrentCategory(categories);
-    fetchProducts(currentCategory);
-  }, [location]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const currentCategory = await fetchCurrentCategory(categories);
+      fetchProducts(currentCategory);
+    };
+    fetchData();
+  }, [fetchCurrentCategory, categories]);
 
- 
   return (
     <UserContext.Provider value={providerValue}>
       <ThemeProvider theme={theme}>
@@ -95,7 +107,7 @@ const App = () => {
         </Route>
       </ThemeProvider>
     </UserContext.Provider>
-  ) 
+  );
 };
 
 export default App;

@@ -1,6 +1,0 @@
-
-
--make the stuff mobile responsive 
--allow for varaints to be place 
--decrease the size of titles 
--add more categories
