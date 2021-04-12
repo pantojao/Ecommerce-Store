@@ -75,7 +75,15 @@ const NavigationMenu = () => {
                 <Link to='/finance' className={classes.linkStyle}>
                   <ListItem className={classes.nested}> Finance </ListItem>
                 </Link>
+
+                <Link to='/space-science' className={classes.linkStyle}>
+                  <ListItem className={classes.nested}> Space Science </ListItem>
+                </Link>
               </List>
+
+              
+
+              
               
             </Collapse> 
           </MenuItem>
